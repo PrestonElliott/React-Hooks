@@ -1,3 +1,22 @@
+/* FORM STYLING */
+#sign-up-form {
+  margin: auto;
+  text-align: center;
+  width: 50%;
+}
+
+.form-fields {
+  padding: 2%;
+  margin: 2%;
+  text-align: auto;
+}
+
+.submit-button {
+  padding: 2%;
+  margin: 2%;
+  text-align: center;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
