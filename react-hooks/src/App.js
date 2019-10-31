@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import './App.css';
 import SignUpForm from './Components/form';
+import DrySignUpForm from './Components/dryForm'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
 		<Fragment>
 			<div> 
 				<SignUpForm/> 
+				<DrySignUpForm/>
 			</div>
 		</Fragment>
 	);

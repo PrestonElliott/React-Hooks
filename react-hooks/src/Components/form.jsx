@@ -24,7 +24,6 @@ export default function SignUpForm() {
     }
 
     function handleSubmit(e) {
-        alert("Thank You!")
         formSubmit(e.target.value)
     }
 
