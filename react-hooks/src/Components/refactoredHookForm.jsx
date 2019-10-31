@@ -2,6 +2,8 @@ import React, { useState, useEffect, Fragment } from 'react'
 import { Form, Button, Jumbotron } from 'react-bootstrap'
 
 export default function RefactoredSignUpForm() {
+    // REFACTORED REACT HOOKS - FUNCTION COMPONENT
+
 
     // CREATE OBJECTS TO PASS AS ARGUMENTS INTO FUNCTION useFormUpdate 
     const firstName = useFormUpdate()

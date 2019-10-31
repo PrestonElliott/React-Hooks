@@ -2,11 +2,14 @@ import React, { useState, useEffect, Fragment } from 'react'
 import { Form, Button, Jumbotron } from 'react-bootstrap'
 
 export default function AbstractHookForm() {
+    // ABSTRACT REACT HOOKS - FUNCTION COMPONENT
 
     // CREATE OBJECTS TO PASS AS ARGUMENTS INTO FUNCTION useFormUpdate 
+    // CALL CUSTOM HOOK useBrowserTabEffect
     const firstName = useFormUpdate()
     const lastName = useFormUpdate()
     const email = useFormUpdate()
+    useBrowserTabEffect(firstName.value + ' ' + lastName.value)
 
     // ABSTRACT REACT HOOKS - FORM SUBMIT EVENT HANDLER
     const handleSubmit = (e) => {
@@ -27,11 +30,6 @@ export default function AbstractHookForm() {
             })
         })
     }
-
-    // ABSTRACT REACT EFFECT HOOK - UPDATES BROWSER TAB TEXT
-    useEffect(() => {
-        document.title = firstName.value + ' ' + lastName.value
-    })
 
     // ABSTRACT REACT HOOKS - RENDERS COMPONENT
     return (
@@ -95,6 +93,13 @@ function useFormUpdate(initialValue) {
         value,
         onChange: handleChange
     }
+}
+
+// ABSTRACT REACT EFFECT HOOK - UPDATES BROWSER TAB TEXT
+function useBrowserTabEffect(name) {
+    useEffect(() => {
+        document.title = name
+    })
 }
 
 
