@@ -1,31 +1,36 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { Form, Button, Jumbotron } from 'react-bootstrap'
 
-export default function SignUpForm() {
-    // "First Name" IS AN EXAMPLE OF SETTING INITIAL STATE 
-    const [firstName, formFirstName] = useState("First Name ")
-    const [lastName, formLastName] = useState()
-    const [email, formEmail] = useState()
+export default class ClassForm extends React.Component {
+    // CLASS COMPONENT FORM USING STATE
 
-    
-    // MAKE CODE DRY-(DON'T REPEAT YOURSELF) 
-    // REFACTOR EVENT HANDLERS TO WORK FOR ALL FORM FIELDS 
-    function handleFirstNameUpdate(e) {
-        formFirstName(e.target.value)
+    state = {
+        firstName: "Initial Value",
+        lastName: "",
+        email: ""
     }
 
-    function handleLastNameUpdate(e) {
-        formLastName(e.target.value)
+    handleFirstNameUpdate = (e) => {
+        this.setState({
+            ...this.state, firstName: e.target.value 
+        })
     }
 
-    function handleEmailUpdate(e) {
-        formEmail(e.target.value)
+    handleLastNameUpdate = (e) => {
+        this.setState({
+            ...this.state, lastName: e.target.value 
+        })
     }
 
-    const handleSubmit = (e) => {
+    handleEmailUpdate = (e) => {
+        this.setState({
+            ...this.state, email: e.target.value 
+        })
+    }
+
+
+    handleSubmit = (e) => {
         e.preventDefault()
-
-        console.log(firstName)
 
         fetch('http://localhost:3000/users', {
             method: 'POST',
@@ -34,25 +39,21 @@ export default function SignUpForm() {
                     'Content-Type':'application/json' },
             body: JSON.stringify({
                 user: {
-                    firstName: firstName,
-                    lastName: lastName,
-                    email: email
+                    firstName: this.state.firstName,
+                    lastName: this.state.lastName,
+                    email: this.state.email
                 }
             })
         })
     }
 
-    // USE EFFECT HOOK 
-    useEffect(() => {
-        document.title = firstName + ' ' + lastName
-    })
-
-    return (
+    render() {
+        return (
             <Fragment>
                 <Jumbotron>
                     <Form 
                         id="sign-up-form"
-                        onSubmit={handleSubmit}
+                        onSubmit={this.handleSubmit}
                     >
 
                         <Form.Label className="form-header">
@@ -64,8 +65,8 @@ export default function SignUpForm() {
                             size="lg" 
                             type="text" 
                             placeholder="First Name"
-                            value={firstName}
-                            onChange={handleFirstNameUpdate} 
+                            value={this.state.firstName}
+                            onChange={this.handleFirstNameUpdate} 
                         />
         
                         <Form.Control 
@@ -73,8 +74,8 @@ export default function SignUpForm() {
                             size="lg" 
                             type="text" 
                             placeholder="Last Name"
-                            value={lastName}
-                            onChange={handleLastNameUpdate} 
+                            value={this.state.lastName}
+                            onChange={this.handleLastNameUpdate} 
                         />    
         
                         <Form.Control 
@@ -82,8 +83,8 @@ export default function SignUpForm() {
                             size="lg" 
                             type="text" 
                             placeholder="Email"
-                            value={email}
-                            onChange={handleEmailUpdate} 
+                            value={this.state.email}
+                            onChange={this.handleEmailUpdate} 
                         />
         
                         <Button
@@ -95,18 +96,9 @@ export default function SignUpForm() {
                         </Button>
 
                     </Form>
-            </Jumbotron>
-        </Fragment>      
-    )
+                </Jumbotron>
+            </Fragment>      
+        )
+    }
+
 }
-
-// SHOW HOW TO REFACTOR FUNCTIONS DOWN HERE
-
-
-
-// SHOW HOW TO REMOVE EFFECT AFTER ITS USED
-
-
-
-// OPTIONAL RETURN STATEMENT IN USE EFFECT
-

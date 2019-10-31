@@ -12,18 +12,18 @@ export default function RefactoredSignUpForm() {
 
     // CUSTOM REACT HOOK useFormUpdate 
     // CUSTOM HOOK'S NAMING CONVENTION BEGINS WITH 'use'
-    function useFormUpdate(initialValue) {
-        const [value, formValue] = useState(initialValue)
+    // function useFormUpdate(initialValue) {
+    //     const [value, formValue] = useState(initialValue)
 
-        function handleChange(e) {
-            formValue(e.target.value)
-        }
+    //     function handleChange(e) {
+    //         formValue(e.target.value)
+    //     }
 
-        return {
-            value,
-            onChange: handleChange
-        }
-    }
+    //     return {
+    //         value,
+    //         onChange: handleChange
+    //     }
+    // }
 
     // EXAMPLE FORM SUBMISSION 
     const handleSubmit = (e) => {
@@ -59,7 +59,7 @@ export default function RefactoredSignUpForm() {
                         onSubmit={handleSubmit}
                     >
 
-                        <Form.Label>
+                        <Form.Label className="form-header">
                             Refactored Sign Up Form
                         </Form.Label>
 
@@ -101,7 +101,18 @@ export default function RefactoredSignUpForm() {
 }
 
 // SHOW HOW TO REFACTOR FUNCTIONS DOWN HERE
+function useFormUpdate(initialValue) {
+    const [value, formValue] = useState(initialValue)
 
+    function handleChange(e) {
+        formValue(e.target.value)
+    }
+
+    return {
+        value,
+        onChange: handleChange
+    }
+}
 
 
 // SHOW HOW TO REMOVE EFFECT AFTER ITS USED

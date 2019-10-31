@@ -5,6 +5,12 @@
   width: 50%;
 }
 
+.form-header {
+  font-weight: bold;
+  font-size: 125%; 
+  text-align: auto;
+}
+
 .form-fields {
   padding: 2%;
   margin: 2%;
