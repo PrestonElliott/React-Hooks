@@ -50,14 +50,14 @@ export default class ClassForm extends React.Component {
     render() {
         return (
             <Fragment>
-                <Jumbotron>
+                <Jumbotron id="class-form">
                     <Form 
-                        id="sign-up-form"
+                        className="sign-up-form"
                         onSubmit={this.handleSubmit}
                     >
 
                         <Form.Label className="form-header">
-                            Sign Up Form
+                            Class Component Sign Up Form
                         </Form.Label>
 
                         <Form.Control 

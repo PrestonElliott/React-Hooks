@@ -53,9 +53,9 @@ export default function RefactoredSignUpForm() {
     // DISPLAYS FORM
     return (
         <Fragment>
-                <Jumbotron>
+                <Jumbotron id="hook-form-2">
                     <Form 
-                        id="sign-up-form" 
+                        className="sign-up-form"
                         onSubmit={handleSubmit}
                     >
 

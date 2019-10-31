@@ -1,5 +1,5 @@
 /* FORM STYLING */
-#sign-up-form {
+.sign-up-form {
   margin: auto;
   text-align: center;
   width: 50%;
@@ -9,6 +9,7 @@
   font-weight: bold;
   font-size: 125%; 
   text-align: auto;
+  color: whitesmoke;
 }
 
 .form-fields {
@@ -21,6 +22,22 @@
   padding: 2%;
   margin: 2%;
   text-align: center;
+}
+
+#class-form {
+  background: grey;
+}
+
+#hook-form-1 {
+  background: rgb(1, 41, 48);
+}
+
+#hook-form-2 {
+  background: rgb(4, 63, 43);
+}
+
+#hook-form-3 {
+  background: rgb(78, 36, 2);
 }
 
 body {

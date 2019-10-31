@@ -49,9 +49,9 @@ export default function SignUpForm() {
 
     return (
             <Fragment>
-                <Jumbotron>
+                <Jumbotron id="hook-form-1">
                     <Form 
-                        id="sign-up-form"
+                        className="sign-up-form"
                         onSubmit={handleSubmit}
                     >
 
