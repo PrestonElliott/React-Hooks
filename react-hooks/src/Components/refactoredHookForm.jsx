@@ -2,16 +2,14 @@ import React, { useState, useEffect, Fragment } from 'react'
 import { Form, Button, Jumbotron } from 'react-bootstrap'
 
 export default function RefactoredSignUpForm() {
+
     // CREATE OBJECTS TO PASS AS ARGUMENTS INTO FUNCTION useFormUpdate 
     const firstName = useFormUpdate()
     const lastName = useFormUpdate()
     const email = useFormUpdate()
 
-    // REFACTORED TO WORK FOR ALL FORM FIELDS 
-    // CODE IS DRY-(DON'T REPEAT YOURSELF) 
-
-    // CUSTOM REACT HOOK useFormUpdate 
-    // CUSTOM HOOK'S NAMING CONVENTION BEGINS WITH 'use'
+    // REFACTORED REACT HOOKS - FORM FIELDS EVENT HANDLER
+    // CUSTOM REACT HOOK useFormUpdate - WORKS FOR ALL FORM FIELDS 
     function useFormUpdate(initialValue) {
         const [value, formValue] = useState(initialValue)
 
@@ -25,7 +23,7 @@ export default function RefactoredSignUpForm() {
         }
     }
 
-    // EXAMPLE FORM SUBMISSION 
+    // REFACTORED REACT HOOKS - FORM SUBMIT EVENT HANDLER
     const handleSubmit = (e) => {
         console.log(firstName.value)
         e.preventDefault()
@@ -45,12 +43,12 @@ export default function RefactoredSignUpForm() {
         })
     }
 
-    // USE EFFECT HOOK TO UPDATE BROWSER TAB TITLE
+    // REFACTORED REACT EFFECT HOOK - UPDATES BROWSER TAB TEXT
     useEffect(() => {
         document.title = firstName.value + ' ' + lastName.value
     })
 
-    // DISPLAYS FORM
+    // REFACTORED REACT HOOKS - RENDERS COMPONENT
     return (
         <Fragment>
                 <Jumbotron id="hook-form-2">
@@ -60,7 +58,7 @@ export default function RefactoredSignUpForm() {
                     >
 
                         <Form.Label className="form-header">
-                            Refactored Sign Up Form
+                            Refactored React Hooks - Sign Up Form
                         </Form.Label>
 
                         <Form.Control 

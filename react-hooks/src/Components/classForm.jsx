@@ -1,15 +1,17 @@
 import React, { Fragment } from 'react'
 import { Form, Button, Jumbotron } from 'react-bootstrap'
 
-export default class ClassForm extends React.Component {
+export default class ClassSignUpForm extends React.Component {
     // CLASS COMPONENT - FORM USING STATE
 
+    // SET INITIAL STATE
     state = {
         firstName: "Initial Value",
         lastName: "",
         email: ""
     }
 
+    // CLASS COMPONENT - FORM FIELDS EVENT HANDLERS
     handleFirstNameUpdate = (e) => {
         this.setState({
             ...this.state, firstName: e.target.value 
@@ -28,6 +30,7 @@ export default class ClassForm extends React.Component {
         })
     }
 
+    // CLASS COMPONENT - FORM SUBMIT EVENT HANDLER
     handleSubmit = (e) => {
         e.preventDefault()
 
@@ -46,6 +49,7 @@ export default class ClassForm extends React.Component {
         })
     }
 
+    // RENDERS CLASS COMPONENT
     render() {
         return (
             <Fragment>
@@ -56,11 +60,12 @@ export default class ClassForm extends React.Component {
                     >
 
                         <Form.Label className="form-header">
-                            Class Component Sign Up Form
+                            Class Component - Sign Up Form
                         </Form.Label>
 
                         <Form.Control 
                             className="form-fields"
+                            name="first-name"
                             size="lg" 
                             type="text" 
                             placeholder="First Name"
@@ -70,6 +75,7 @@ export default class ClassForm extends React.Component {
         
                         <Form.Control 
                             className="form-fields"
+                            name="last-name"
                             size="lg" 
                             type="text" 
                             placeholder="Last Name"
@@ -79,6 +85,7 @@ export default class ClassForm extends React.Component {
         
                         <Form.Control 
                             className="form-fields"
+                            name="email"
                             size="lg" 
                             type="text" 
                             placeholder="Email"

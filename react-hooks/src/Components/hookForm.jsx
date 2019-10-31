@@ -1,15 +1,15 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { Form, Button, Jumbotron } from 'react-bootstrap'
 
-export default function SignUpForm() {
-    // "First Name" IS AN EXAMPLE OF SETTING INITIAL STATE 
+export default function HookSignUpForm() {
+    // FUNCTION COMPONENT WITH REACT HOOKS 
+
+    // SET INITIAL STATE
     const [firstName, formFirstName] = useState("First Name ")
     const [lastName, formLastName] = useState()
     const [email, formEmail] = useState()
-
-    
-    // MAKE CODE DRY-(DON'T REPEAT YOURSELF) 
-    // REFACTOR EVENT HANDLERS TO WORK FOR ALL FORM FIELDS 
+ 
+    // REACT HOOKS - FORM FIELDS EVENT HANDLERS
     function handleFirstNameUpdate(e) {
         formFirstName(e.target.value)
     }
@@ -22,6 +22,7 @@ export default function SignUpForm() {
         formEmail(e.target.value)
     }
 
+    // REACT HOOKS - FORM SUBMIT EVENT HANDLER
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -42,11 +43,12 @@ export default function SignUpForm() {
         })
     }
 
-    // USE EFFECT HOOK 
+    // REACT EFFECT HOOK - UPDATES BROWSER TAB TEXT
     useEffect(() => {
         document.title = firstName + ' ' + lastName
     })
 
+    // REACT HOOKS - RENDERS COMPONENT
     return (
             <Fragment>
                 <Jumbotron id="hook-form-1">
@@ -56,7 +58,7 @@ export default function SignUpForm() {
                     >
 
                         <Form.Label className="form-header">
-                            Sign Up Form
+                            React Hooks - Sign Up Form
                         </Form.Label>
 
                         <Form.Control 

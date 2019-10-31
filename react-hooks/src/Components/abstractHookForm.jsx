@@ -1,13 +1,14 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { Form, Button, Jumbotron } from 'react-bootstrap'
 
-export default function RefactoredSignUpForm() {
+export default function AbstractHookForm() {
+
     // CREATE OBJECTS TO PASS AS ARGUMENTS INTO FUNCTION useFormUpdate 
     const firstName = useFormUpdate()
     const lastName = useFormUpdate()
     const email = useFormUpdate()
 
-    // EXAMPLE FORM SUBMISSION 
+    // ABSTRACT REACT HOOKS - FORM SUBMIT EVENT HANDLER
     const handleSubmit = (e) => {
         console.log(firstName.value)
         e.preventDefault()
@@ -27,12 +28,12 @@ export default function RefactoredSignUpForm() {
         })
     }
 
-    // USE EFFECT HOOK TO UPDATE BROWSER TAB TITLE
+    // ABSTRACT REACT EFFECT HOOK - UPDATES BROWSER TAB TEXT
     useEffect(() => {
         document.title = firstName.value + ' ' + lastName.value
     })
 
-    // DISPLAYS FORM
+    // ABSTRACT REACT HOOKS - RENDERS COMPONENT
     return (
         <Fragment>
                 <Jumbotron id="hook-form-3">
@@ -42,7 +43,7 @@ export default function RefactoredSignUpForm() {
                     >
 
                         <Form.Label className="form-header">
-                            More Abstract Refactored Sign Up Form
+                            More Abstract React Hooks - Sign Up Form
                         </Form.Label>
 
                         <Form.Control 
@@ -82,13 +83,7 @@ export default function RefactoredSignUpForm() {
     )
 }
 
-// REFACTORED TO WORK FOR ALL FORM FIELDS 
-// CODE IS DRY-(DON'T REPEAT YOURSELF) 
-
-// CUSTOM REACT HOOK useFormUpdate 
-// CUSTOM HOOK'S NAMING CONVENTION BEGINS WITH 'use'
-
-// CAN MOVE FUNCTIONS TO BOTTOM OF FILE
+// ABSTRACT REACT HOOKS - CAN MOVE FUNCTIONS TO BOTTOM OF FILE
 function useFormUpdate(initialValue) {
     const [value, formValue] = useState(initialValue)
 
