@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Form, Button, Jumbotron } from 'react-bootstrap'
 
 export default class ClassForm extends React.Component {
-    // CLASS COMPONENT FORM USING STATE
+    // CLASS COMPONENT - FORM USING STATE
 
     state = {
         firstName: "Initial Value",
@@ -27,7 +27,6 @@ export default class ClassForm extends React.Component {
             ...this.state, email: e.target.value 
         })
     }
-
 
     handleSubmit = (e) => {
         e.preventDefault()

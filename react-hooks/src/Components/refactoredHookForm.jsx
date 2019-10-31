@@ -1,32 +1,35 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { Form, Button, Jumbotron } from 'react-bootstrap'
 
-export default function SignUpForm() {
-    // "First Name" IS AN EXAMPLE OF SETTING INITIAL STATE 
-    const [firstName, formFirstName] = useState("First Name ")
-    const [lastName, formLastName] = useState()
-    const [email, formEmail] = useState()
+export default function RefactoredSignUpForm() {
+    // CREATE OBJECTS TO PASS AS ARGUMENTS INTO FUNCTION useFormUpdate 
+    const firstName = useFormUpdate()
+    const lastName = useFormUpdate()
+    const email = useFormUpdate()
 
-    
-    // MAKE CODE DRY-(DON'T REPEAT YOURSELF) 
-    // REFACTOR EVENT HANDLERS TO WORK FOR ALL FORM FIELDS 
-    function handleFirstNameUpdate(e) {
-        formFirstName(e.target.value)
+    // REFACTORED TO WORK FOR ALL FORM FIELDS 
+    // CODE IS DRY-(DON'T REPEAT YOURSELF) 
+
+    // CUSTOM REACT HOOK useFormUpdate 
+    // CUSTOM HOOK'S NAMING CONVENTION BEGINS WITH 'use'
+    function useFormUpdate(initialValue) {
+        const [value, formValue] = useState(initialValue)
+
+        function handleChange(e) {
+            formValue(e.target.value)
+        }
+
+        return {
+            value,
+            onChange: handleChange
+        }
     }
 
-    function handleLastNameUpdate(e) {
-        formLastName(e.target.value)
-    }
-
-    function handleEmailUpdate(e) {
-        formEmail(e.target.value)
-    }
-
+    // EXAMPLE FORM SUBMISSION 
     const handleSubmit = (e) => {
+        console.log(firstName.value)
         e.preventDefault()
-
-        console.log(firstName)
-
+ 
         fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: { 
@@ -34,29 +37,30 @@ export default function SignUpForm() {
                     'Content-Type':'application/json' },
             body: JSON.stringify({
                 user: {
-                    firstName: firstName,
-                    lastName: lastName,
-                    email: email
+                    firstName: firstName.value,
+                    lastName: lastName.value,
+                    email: email.value
                 }
             })
         })
     }
 
-    // USE EFFECT HOOK 
+    // USE EFFECT HOOK TO UPDATE BROWSER TAB TITLE
     useEffect(() => {
-        document.title = firstName + ' ' + lastName
+        document.title = firstName.value + ' ' + lastName.value
     })
 
+    // DISPLAYS FORM
     return (
-            <Fragment>
-                <Jumbotron id="hook-form-1">
+        <Fragment>
+                <Jumbotron id="hook-form-2">
                     <Form 
                         className="sign-up-form"
                         onSubmit={handleSubmit}
                     >
 
                         <Form.Label className="form-header">
-                            Sign Up Form
+                            Refactored Sign Up Form
                         </Form.Label>
 
                         <Form.Control 
@@ -64,8 +68,7 @@ export default function SignUpForm() {
                             size="lg" 
                             type="text" 
                             placeholder="First Name"
-                            value={firstName}
-                            onChange={handleFirstNameUpdate} 
+                            {...firstName}
                         />
         
                         <Form.Control 
@@ -73,8 +76,7 @@ export default function SignUpForm() {
                             size="lg" 
                             type="text" 
                             placeholder="Last Name"
-                            value={lastName}
-                            onChange={handleLastNameUpdate} 
+                            {...lastName}
                         />    
         
                         <Form.Control 
@@ -82,31 +84,19 @@ export default function SignUpForm() {
                             size="lg" 
                             type="text" 
                             placeholder="Email"
-                            value={email}
-                            onChange={handleEmailUpdate} 
+                            {...email}
                         />
         
                         <Button
                             className="submit-button" 
                             variant="primary" 
-                            type="submit"    
+                            type="submit"
                         >
                             Submit
                         </Button>
-
                     </Form>
             </Jumbotron>
         </Fragment>      
     )
 }
-
-// SHOW HOW TO REFACTOR FUNCTIONS DOWN HERE
-
-
-
-// SHOW HOW TO REMOVE EFFECT AFTER ITS USED
-
-
-
-// OPTIONAL RETURN STATEMENT IN USE EFFECT
 

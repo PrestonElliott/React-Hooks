@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react';
 import './App.css';
-import SignUpForm from './Components/form';
-import RefactoredSignUpForm from './Components/refactoredForm'
-import ThirdForm from './Components/thirdForm'
+
 import ClassForm from './Components/classForm'
+import HookForm from './Components/hookForm';
+import RefactoredHookForm from './Components/refactoredHookForm'
+import AbstractHookForm from './Components/abstractHookForm'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -11,9 +13,9 @@ function App() {
 		<Fragment>
 			<div> 
 				<ClassForm/>
-				<SignUpForm/> 
-				<RefactoredSignUpForm/>
-				<ThirdForm/>
+				<HookForm/> 
+				<RefactoredHookForm/>
+				<AbstractHookForm/>
 			</div>
 		</Fragment>
 	);

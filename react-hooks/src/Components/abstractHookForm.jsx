@@ -104,8 +104,5 @@ function useFormUpdate(initialValue) {
 
 
 // SHOW HOW TO REMOVE EFFECT AFTER ITS USED
-
-
-
 // OPTIONAL RETURN STATEMENT IN USE EFFECT
 
