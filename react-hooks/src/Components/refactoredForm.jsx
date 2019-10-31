@@ -1,18 +1,17 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { Form, Button, Jumbotron } from 'react-bootstrap'
 
-export default function SignUpForm() {
+export default function RefactoredSignUpForm() {
+    // CREATE OBJECTS TO PASS AS ARGUMENTS INTO FUNCTION useFormUpdate 
     const firstName = useFormUpdate()
     const lastName = useFormUpdate()
     const email = useFormUpdate()
-    // const [submit, formSubmit] = useState()
 
-    // REFACTORED ABOVE
-    // const [name, formName] = useState()
-    // const [lastName, formLastName] = useState()
+    // REFACTORED TO WORK FOR ALL FORM FIELDS 
+    // CODE IS DRY-(DON'T REPEAT YOURSELF) 
 
-    // REFACTORED TO WORK FOR ALL FIELDS 
-    // MAKES YOUR CODE DRY-(DON'T REPEAT YOURSELF) 
+    // CUSTOM REACT HOOK useFormUpdate 
+    // CUSTOM HOOK'S NAMING CONVENTION BEGINS WITH 'use'
     function useFormUpdate(initialValue) {
         const [value, formValue] = useState(initialValue)
 
@@ -26,11 +25,11 @@ export default function SignUpForm() {
         }
     }
 
+    // EXAMPLE FORM SUBMISSION 
     const handleSubmit = (e) => {
         console.log(firstName.value)
         e.preventDefault()
-
-        // EXAMPLE FORM SUBMISSION  
+ 
         fetch('http://localhost:3000/users',{
             method: 'POST',
             headers: { 
@@ -46,17 +45,17 @@ export default function SignUpForm() {
         })
     }
 
-    // USE EFFECT HOOK 
+    // USE EFFECT HOOK TO UPDATE BROWSER TAB TITLE
     useEffect(() => {
         document.title = firstName.value + ' ' + lastName.value
     })
 
+    // DISPLAYS FORM
     return (
         <Fragment>
                 <Jumbotron>
                     <Form 
                         id="sign-up-form" 
-                        // value={submit}
                         onSubmit={handleSubmit}
                     >
                         <Form.Control 
@@ -87,7 +86,6 @@ export default function SignUpForm() {
                             className="submit-button" 
                             variant="primary" 
                             type="submit"
-                            // {...submit}
                         >
                             Submit
                         </Button>

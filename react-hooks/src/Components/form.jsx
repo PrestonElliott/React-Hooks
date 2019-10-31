@@ -2,9 +2,9 @@ import React, { useState, useEffect, Fragment } from 'react'
 import { Form, Button, Jumbotron } from 'react-bootstrap'
 
 export default function SignUpForm() {
-
+    // "First Name" IS AN EXAMPLE OF SETTING INITIAL STATE 
     const [name, formName] = useState("First Name ")
-    const [lastName, formLastName] = useState("Last Name")
+    const [lastName, formLastName] = useState()
     const [email, formEmail] = useState()
     const [submit, formSubmit] = useState()
 
