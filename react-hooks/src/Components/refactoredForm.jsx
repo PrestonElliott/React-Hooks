@@ -30,7 +30,7 @@ export default function RefactoredSignUpForm() {
         console.log(firstName.value)
         e.preventDefault()
  
-        fetch('http://localhost:3000/users',{
+        fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: { 
                     Accept: 'application/json', 
@@ -58,6 +58,11 @@ export default function RefactoredSignUpForm() {
                         id="sign-up-form" 
                         onSubmit={handleSubmit}
                     >
+
+                        <Form.Label>
+                            Refactored Sign Up Form
+                        </Form.Label>
+
                         <Form.Control 
                             className="form-fields"
                             size="lg" 

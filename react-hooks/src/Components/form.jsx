@@ -3,15 +3,14 @@ import { Form, Button, Jumbotron } from 'react-bootstrap'
 
 export default function SignUpForm() {
     // "First Name" IS AN EXAMPLE OF SETTING INITIAL STATE 
-    const [name, formName] = useState("First Name ")
+    const [firstName, formName] = useState("First Name ")
     const [lastName, formLastName] = useState()
     const [email, formEmail] = useState()
-    const [submit, formSubmit] = useState()
 
     
     // MAKE CODE DRY-(DON'T REPEAT YOURSELF) 
     // REFACTOR EVENT HANDLERS TO WORK FOR ALL FORM FIELDS 
-    function handleNameUpdate(e) {
+    function handleFirstNameUpdate(e) {
         formName(e.target.value)
     }
 
@@ -23,26 +22,50 @@ export default function SignUpForm() {
         formEmail(e.target.value)
     }
 
-    function handleSubmit(e) {
-        formSubmit(e.target.value)
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        console.log(firstName)
+
+        fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers: { 
+                    Accept: 'application/json', 
+                    'Content-Type':'application/json' },
+            body: JSON.stringify({
+                user: {
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email
+                }
+            })
+        })
     }
 
     // USE EFFECT HOOK 
     useEffect(() => {
-        document.title = name + ' ' + lastName
+        document.title = firstName + ' ' + lastName
     })
 
     return (
             <Fragment>
                 <Jumbotron>
-                    <Form id="sign-up-form">
+                    <Form 
+                        id="sign-up-form"
+                        onSubmit={handleSubmit}
+                    >
+
+                        <Form.Label>
+                            Sign Up Form
+                        </Form.Label>
+
                         <Form.Control 
                             className="form-fields"
                             size="lg" 
                             type="text" 
                             placeholder="First Name"
-                            value={name}
-                            onChange={handleNameUpdate} 
+                            value={firstName}
+                            onChange={handleFirstNameUpdate} 
                         />
         
                         <Form.Control 
@@ -66,12 +89,11 @@ export default function SignUpForm() {
                         <Button
                             className="submit-button" 
                             variant="primary" 
-                            type="submit"
-                            value={submit}
-                            onSubmit={handleSubmit}
+                            type="submit"    
                         >
                             Submit
                         </Button>
+
                     </Form>
             </Jumbotron>
         </Fragment>      
