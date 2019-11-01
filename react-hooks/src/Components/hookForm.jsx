@@ -5,21 +5,21 @@ export default function HookSignUpForm() {
     // FUNCTION COMPONENT WITH REACT HOOKS 
 
     // SET INITIAL STATE
-    const [firstName, formFirstName] = useState("First Name ")
-    const [lastName, formLastName] = useState()
-    const [email, formEmail] = useState()
+    const [firstName, useFormFirstName] = useState("First Name ")
+    const [lastName, useFormLastName] = useState()
+    const [email, useFormEmail] = useState()
  
     // REACT HOOKS - FORM FIELDS EVENT HANDLERS
     function handleFirstNameUpdate(e) {
-        formFirstName(e.target.value)
+        useFormFirstName(e.target.value)
     }
 
     function handleLastNameUpdate(e) {
-        formLastName(e.target.value)
+        useFormLastName(e.target.value)
     }
 
     function handleEmailUpdate(e) {
-        formEmail(e.target.value)
+        useFormEmail(e.target.value)
     }
 
     // REACT HOOKS - FORM SUBMIT EVENT HANDLER
