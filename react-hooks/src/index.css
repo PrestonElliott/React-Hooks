@@ -1,13 +1,12 @@
 /* COUNTER STYLING */
-#counter {
+.counter {
   margin: auto;
-  text-align: center;
+  text-align: auto;
   width: 50%;
   padding: 3%;
-  text-align: center;
 }
 
-#counter-button {
+.counter-button {
   padding: 2%;
   margin: 2%;
   text-align: center;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button } from 'react-bootstrap'
 
 export default function Counter() {
@@ -6,6 +6,7 @@ export default function Counter() {
 
 	// SET INITIAL STATE
 	const [count, setCount] = useState(0)
+	useBrowserTabEffect(count)
 	
 
 	// COUNT EVENT HANDLER
@@ -15,13 +16,13 @@ export default function Counter() {
 
 	// RENDERS COMPONENT
     return (
-        <div id="counter">
-            <h2 id="counter-header">
+        <div className="counter">
+            <h2 className="counter-header">
 				You clicked the button {count} times.
 			</h2>
 
 			<Button 
-				id="counter-button"
+				className="counter-button"
 				onClick={handleCounter} 
 			>
                 Click Here
@@ -30,24 +31,9 @@ export default function Counter() {
     )
 }
 
-
-
-
-// ADD useEffect to React import
-
-// ADD TO STATE
-// useBrowserTabEffect(count)
-	
-// ADD EFFECT BELOW COUNT EVENT HANDLER
-	// useEffect(() => {
-	// 	document.title = `You clicked ${count} times.`
-	// })
-
-
-// STAYS AT BOTTOM FOR REFACTOR EXAMPLE
-// REFACTORED INTO CUSTOM EFFECT HOOK
-// function useBrowserTabEffect(count) {
-// 	useEffect(() => {
-// 		document.title = `You clicked ${count} times.`
-// 	})
-// }
+// REFACTORED INTO CUSTOM EFFECT HOOK - useBrowserTabEffect
+function useBrowserTabEffect(count) {
+	useEffect(() => {
+		document.title = `You clicked ${count} times.`
+	})
+}

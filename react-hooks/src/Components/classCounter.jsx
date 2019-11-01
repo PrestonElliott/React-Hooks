@@ -14,16 +14,25 @@ export default class ClassCounter extends React.Component {
         this.setState({ ...this.state, count: this.state.count + 1 })
     }
 
+    // CREATE EFFECT - UPDATES BROWSER TAB TEXT
+    componentDidMount() {
+        document.title = `Count: ${this.state.count}`
+    }
+
+    componentDidUpdate() {
+        document.title = `Count: ${this.state.count}`
+    }
+
     // RENDERS COMPONENT
     render() {
         return(
-            <div id="counter">
-                <h2 id="counter-header">
+            <div className="counter">
+                <h2 className="counter-header">
                     You clicked the button {this.state.count} times.
                 </h2>
 
                 <Button 
-                    id="counter-button"
+                    className="counter-button"
                     onClick={this.handleCounter} 
                 >
                     Click Here
@@ -32,12 +41,3 @@ export default class ClassCounter extends React.Component {
         )
     }
 }
-
-// CREATE EFFECT - UPDATES BROWSER TAB TEXT
-// componentDidMount() {
-//     document.title = `Count: ${this.state.count}`
-// }
-
-// componentDidUpdate() {
-//     document.title = `Count: ${this.state.count}`
-// }
