@@ -32,3 +32,12 @@ export default class ClassCounter extends React.Component {
         )
     }
 }
+
+// CREATE EFFECT - UPDATES BROWSER TAB TEXT
+// componentDidMount() {
+//     document.title = `Count: ${this.state.count}`
+// }
+
+// componentDidUpdate() {
+//     document.title = `Count: ${this.state.count}`
+// }
