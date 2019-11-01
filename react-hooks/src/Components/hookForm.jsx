@@ -43,7 +43,7 @@ export default function HookSignUpForm() {
         })
     }
 
-    // REACT EFFECT HOOK - UPDATES BROWSER TAB TEXT
+    // REFACTORED REACT EFFECT HOOK - UPDATES BROWSER TAB TEXT
     useEffect(() => {
         document.title = firstName + ' ' + lastName
     })

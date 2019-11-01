@@ -6,7 +6,7 @@ export default class ClassSignUpForm extends React.Component {
 
     // SET INITIAL STATE
     state = {
-        firstName: "Initial Value",
+        firstName: "First Name",
         lastName: "",
         email: ""
     }
