@@ -2,7 +2,8 @@ import React, { useEffect, useReducer } from 'react'
 import { Button } from 'react-bootstrap'
 
 export default function Counter() {
-    
+
+    // SET INITIAL STATE AND REDUCER SWITCH
 	const [count, dispatch] = useReducer((state, action) => {
         switch(action) {
             case "INCREASE": {
@@ -18,8 +19,11 @@ export default function Counter() {
                 return state
         }
     }, 0)
-	useBrowserTabEffect(count)
-	
+
+    // CALL CUSTOM HOOK AND PASS IN 'count'
+    useBrowserTabEffect(count)
+    
+	// RENDERS COMPONENT
     return (
         <div className="counter">
             <h2 className="counter-header">
@@ -39,7 +43,7 @@ export default function Counter() {
 			>
                 -
             </Button>
-            
+
             <Button 
 				className="counter-button"
 				onClick={() => dispatch("RESET")} 
@@ -50,7 +54,7 @@ export default function Counter() {
     )
 }
 
-// REFACTORED INTO CUSTOM EFFECT HOOK - useBrowserTabEffect
+// CUSTOM EFFECT HOOK - useBrowserTabEffect
 function useBrowserTabEffect(count) {
 	useEffect(() => {
 		document.title = `Count: ${count}`
