@@ -2,8 +2,7 @@ import React, { useEffect, useReducer } from 'react'
 import { Button } from 'react-bootstrap'
 
 export default function Counter() {
-
-    // SET INITIAL STATE AND REDUCER SWITCH
+    // SET INITIAL STATE AND REDUCER ACTION SWITCH
 	const [count, dispatch] = useReducer((state, action) => {
         switch(action) {
             case "INCREASE": {
