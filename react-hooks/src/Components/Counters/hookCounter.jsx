@@ -35,5 +35,5 @@ export default function Counter() {
 function useBrowserTabEffect(count) {
 	useEffect(() => {
 		document.title = `You clicked ${count} times.`
-	})
+	}, [count])
 }

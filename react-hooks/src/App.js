@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 import './App.css';
 
-// import ClassForm from './Components/classForm'
-// import HookForm from './Components/hookForm';
-// import RefactoredHookForm from './Components/refactoredHookForm'
-// import AbstractHookForm from './Components/abstractHookForm'
+// import ClassForm from './Components/Forms/classForm'
+// import HookForm from './Components/Forms/hookForm';
+// import RefactoredHookForm from './Components/Forms/refactoredHookForm'
+// import AbstractHookForm from './Components/Forms/abstractHookForm'
 
-import ClassCounter from './Components/classCounter'
-import HookCounter from './Components/hookCounter'
+import ClassCounter from './Components/Counters/classCounter'
+import HookCounter from './Components/Counters/hookCounter'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
