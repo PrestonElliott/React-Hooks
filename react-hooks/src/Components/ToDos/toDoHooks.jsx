@@ -40,14 +40,23 @@ export default function Todos() {
     return (
         <Fragment>
             <div>
-                <Form onSubmit={handleSubmit}>
+                <Form 
+                    id="to-do-form"
+                    onSubmit={handleSubmit}
+                >
+                    <h2> To Do List </h2> 
                     <input ref={todoText}/>
                 </Form>
-                <ul>
+
+                <ul className="to-do-items">
                     {todoList.map((todo, index) => 
                         <li key={todo.id}> 
-                            {todo.text} {" "} 
-                            <Button onClick={() => dispatch({ type: "DELETE_TODO", index })}>
+                            {todo.text}
+                            <Button 
+                                onClick={() => dispatch({ type: "DELETE_TODO", index })}
+                                className="to-do-delete"
+                                variant="danger"
+                            >
                                 X
                             </Button>
                         </li> 

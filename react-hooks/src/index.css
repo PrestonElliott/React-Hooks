@@ -1,3 +1,23 @@
+/* TO DO STYLING */
+.to-do-delete {
+  margin: .5%;
+}
+
+#to-do-form {
+  margin: auto;
+  text-align: center;
+  width: 50%;
+  padding: 2%;
+}
+
+/* UPDATE TO MOVE BULLETS CENTER */
+.to-do-items {
+  margin: auto;
+  text-align: center;
+  padding: 2%;
+  list-style-position: inside;
+}
+
 /* COUNTER STYLING */
 .counter {
   margin: auto;
