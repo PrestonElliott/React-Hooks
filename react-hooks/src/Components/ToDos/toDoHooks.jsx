@@ -2,10 +2,13 @@ import React, { Fragment, useRef, useReducer } from 'react'
 import { Form, Button } from 'react-bootstrap'
 
 export default function Todos() {
-    // CREATE REF FOR TEXT INPUT
+    // CREATE REF FOR TO DO INPUT
+    // INITIAL STATE IS BLANK
     const todoText = useRef()
     
-    // SET INITAL STATE TO EMPTY ARRAY
+    // useReducer REACT HOOK WITH CASES FOR FUNCTIONALITY
+    // USE DESCRIPTIVE TYPES FOR READABILITY
+    // SET INITAL STATE TO EMPTY ARRAY ON LINE 31
     const [todoList, dispatch] = useReducer((state, action) => { 
             switch(action.type) {
                 case "ADD_ITEM": {
@@ -30,7 +33,7 @@ export default function Todos() {
             }
     }, [])
 
-    // HANDLE TO DO SUBMIT EVENT
+    // HANDLE FORM SUBMIT EVENT
     function handleSubmit(e) {
         e.preventDefault()
         dispatch({ 
@@ -40,7 +43,7 @@ export default function Todos() {
         todoText.current.value = ""
     }
 
-    // RENDER COMPONENT
+    // RENDER COMPONENT - USE DISPATCH TO ACCESS useReducer
     return (
         <Fragment>
             <div>
