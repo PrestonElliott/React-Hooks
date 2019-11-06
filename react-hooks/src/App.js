@@ -8,7 +8,7 @@ import './App.css';
 
 // import ClassCounter from './Components/Counters/classCounter'
 // import HookCounter from './Components/Counters/hookCounter'
-import HookReducerCounter from './Components/Counters/hookCounterWithReducer'
+// import HookReducerCounter from './Components/Counters/hookCounterWithReducer'
 
 import ToDoHook from './Components/ToDos/toDoHooks'
 
@@ -20,7 +20,7 @@ function App() {
 		<Fragment>
 			<div> 
 				<ToDoHook/>
-				<HookReducerCounter/>
+				{/* <HookReducerCounter/> */}
 				{/* <ClassCounter/>
 				<HookCounter/> */}
 				{/* <ClassForm/>

@@ -1,21 +1,30 @@
 /* TO DO STYLING */
-.to-do-delete {
-  margin: .5%;
-}
-
 #to-do-form {
   margin: auto;
   text-align: center;
   width: 50%;
-  padding: 2%;
+  padding: 1%;
+  border-radius: 5%;
 }
 
-/* UPDATE TO MOVE BULLETS CENTER */
+#to-do-form-input {
+  margin: .5%;
+  padding: 1.36%;
+  border-radius: 5%;
+}
+
 .to-do-items {
   margin: auto;
   text-align: center;
   padding: 2%;
   list-style-position: inside;
+}
+
+.to-do-delete {
+  margin: .5%;
+  padding: 2%;
+  border-radius: 5%;
+  text-align: center;
 }
 
 /* COUNTER STYLING */
