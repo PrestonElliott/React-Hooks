@@ -26,7 +26,7 @@ export default function Counter() {
     return (
         <div className="counter">
             <h2 className="counter-header">
-				You clicked the button {count} times.
+				Current Count: {count}
 			</h2>
 
 			<Button 
@@ -56,6 +56,6 @@ export default function Counter() {
 // CUSTOM EFFECT HOOK - useBrowserTabEffect
 function useBrowserTabEffect(count) {
 	useEffect(() => {
-		document.title = `Count: ${count}`
+		document.title = `Current Count: ${count}`
 	}, [count])
 }
