@@ -1,63 +1,61 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { useReducer } from 'react'
 import { Button } from 'react-bootstrap'
 
 export default function Counter() {
-    // useReducer REACT HOOK 
-    // SET INITIAL STATE TO ZERO ON LINE 21
-	const [count, dispatch] = useReducer((state, action) => {
-        switch(action) {
+
+    const initialState = { count: 0 }
+
+    // ROUTES ACTIONS TO UPDATE STATE
+    const reducer = (state, action) => {
+        switch(action.type) {
             case "INCREASE": {
-                return state + 1
+                return { count: state.count + 1 }
             }
             case "DECREASE": {
-                return state - 1
+                return { count: state.count - 1 }
             }
             case "RESET": {
-                return state = 0
+                return { count: state.count = 0 }
             }
             default:
-                return state
+                return state.count
         }
-    }, 0)
+    } 
 
-    // CALL CUSTOM HOOK AND PASS IN 'count'
-    useBrowserTabEffect(count)
+    // state UPDATES VIA dispatch 
+    // useReducer TAKES IN THE reducer FUNCTION AND initialState 
+    const [state, dispatch] = useReducer(reducer, initialState)
     
-	// RENDERS COMPONENT - USE DISPATCH TO ACCESS useReducer
+    // RENDERS COUNT COMPONENT
     return (
         <div className="counter">
             <h2 className="counter-header">
-				Current Count: {count}
+				Current Count: {state.count}
 			</h2>
 
 			<Button 
 				className="counter-button"
-				onClick={() => dispatch('INCREASE')} 
+                variant="success"
+				onClick={() => dispatch({ type: 'INCREASE' })} 
 			>
                 +
             </Button>
 
             <Button 
 				className="counter-button"
-				onClick={() => dispatch("DECREASE")} 
+                variant="danger"
+				onClick={() => dispatch({ type: "DECREASE" })} 
 			>
                 -
             </Button>
 
             <Button 
 				className="counter-button"
-				onClick={() => dispatch("RESET")} 
+                variant="info"
+				onClick={() => dispatch({ type: "RESET" })} 
 			>
                 Reset To Zero
             </Button>
         </div>
     )
-}
-
-// CUSTOM EFFECT HOOK - useBrowserTabEffect
-// EXPLAIN [count] - WHAT IT IS AND WHY TO USE IT
-function useBrowserTabEffect(count) {
-	useEffect(() => {
-		document.title = `Current Count: ${count}`
-	}, [count])
 }

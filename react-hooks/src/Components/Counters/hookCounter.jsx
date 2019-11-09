@@ -8,7 +8,6 @@ export default function Counter() {
 	const [count, setCount] = useState(0)
 	useBrowserTabEffect(count)
 	
-
 	// COUNT EVENT HANDLER
     function handleCounter () {
       setCount(count + 1)
