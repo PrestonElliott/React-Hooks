@@ -2,8 +2,12 @@ import React, { Fragment, useRef, useReducer } from 'react'
 import { Form, Button } from 'react-bootstrap'
 
 export default function Todos() {
+    // TO-DO INPUT INITIAL STATE IS BLANK
+    // CREATE REF FOR TO-DO INPUT
+    const todoText = useRef()
     
-    // SET TO DO LIST INITAL STATE TO EMPTY ARRAY ON LINE 31
+    // todoList UPDATES VIA dispatch 
+    // todoList INITIAL STATE SET TO EMPTY ARRAY ON LINE 33
     const [todoList, dispatch] = useReducer((state, action) => { 
             switch(action.type) {
                 case "ADD_ITEM": {
@@ -28,13 +32,9 @@ export default function Todos() {
             }
     }, [])
 
-    // CREATE REF FOR TO DO INPUT
-    // FORM INPUT INITIAL STATE IS BLANK
-    const todoText = useRef()
-
-    // FORM SUBMIT EVENT HANDLER 
-    function handleSubmit(event) {
-        event.preventDefault()
+    // FORM SUBMIT EVENT HANDLER
+    function handleSubmit(e) {
+        e.preventDefault()
         dispatch({ 
             type: "ADD_ITEM",
             text: todoText.current.value 
@@ -42,12 +42,12 @@ export default function Todos() {
         todoText.current.value = ""
     }
 
-    // RENDER COMPONENT - USE DISPATCH TO ACCESS useReducer
+    // RENDER TO-DO COMPONENT
     return (
         <Fragment>
             <div>
                 <Form id="to-do-form" onSubmit={handleSubmit}>
-                    <h2> To Do List </h2> 
+                    <h2> To-Do List </h2> 
                     <input id="to-do-form-input" ref={todoText}/>
                     <Button onClick={() => dispatch({ type: "CLEAR_ITEMS" })}> 
                         Clear List 
