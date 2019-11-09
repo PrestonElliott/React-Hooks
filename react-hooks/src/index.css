@@ -38,7 +38,7 @@
 .counter-button {
   padding: 2%;
   margin: 2%;
-  text-align: center;
+  text-align: auto;
 }
 
 /* FORMS STYLING */

@@ -2,7 +2,6 @@ import React, { useReducer } from 'react'
 import { Button } from 'react-bootstrap'
 
 export default function Counter() {
-
     const initialState = { count: 0 }
 
     // ROUTES ACTIONS TO UPDATE STATE
@@ -30,7 +29,7 @@ export default function Counter() {
     return (
         <div className="counter">
             <h2 className="counter-header">
-				Current Count: {state.count}
+				Count: {state.count}
 			</h2>
 
 			<Button 
