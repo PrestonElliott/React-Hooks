@@ -10,7 +10,9 @@ import './App.css';
 // import HookCounter from './Components/Counters/hookCounter'
 // import HookReducerCounter from './Components/Counters/hookCounterWithReducer'
 
-import ToDoHook from './Components/ToDos/toDoHooks'
+// import ToDoHook from './Components/ToDos/toDoHooks'
+
+import DataFetch from './Components/DataFetch/data'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,7 +21,8 @@ function App() {
 	return (
 		<Fragment>
 			<div> 
-				<ToDoHook/>
+				<DataFetch />
+				{/* <ToDoHook/> */}
 				{/* <HookReducerCounter/> */}
 				{/* <ClassCounter/>
 				<HookCounter/> */}

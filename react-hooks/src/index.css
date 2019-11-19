@@ -27,6 +27,25 @@
   text-align: center;
 }
 
+/* NASA DAILY PIC */
+#jumbo-photo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding: 1%;
+}
+
+#daily-pic-title {
+  text-align: center;
+  padding: 2%;
+}
+
+#daily-pic-explanation {
+  text-align: center;
+  padding: 2%;
+}
+
 /* COUNTER STYLING */
 .counter {
   margin: auto;
