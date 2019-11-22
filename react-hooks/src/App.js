@@ -12,7 +12,7 @@ import './App.css';
 
 // import ToDoHook from './Components/ToDos/toDoHooks'
 
-import DataFetch from './Components/DataFetch/data'
+import DailyPic from './Components/DataFetch/data'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,7 +21,7 @@ function App() {
 	return (
 		<Fragment>
 			<div> 
-				<DataFetch />
+				<DailyPic />
 				{/* <ToDoHook/> */}
 				{/* <HookReducerCounter/> */}
 				{/* <ClassCounter/>
