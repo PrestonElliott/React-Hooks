@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Image } from "react-bootstrap"
 
-export default function DailyPic() {
+export default function FunctionDailyPic() {
 
     const [nasaData, setData] = useState({ })
 
@@ -19,7 +19,7 @@ export default function DailyPic() {
         <div>
             <h2 id="daily-pic-title">{nasaData.title}</h2>
             <Image id="jumbo-photo" src={nasaData.hdurl} />
-            <h4 id="daily-pic-info">{nasaData.copyright} | {nasaData.date}</h4>
+            <h4 id="daily-pic-info">{nasaData.copyright ? nasaData.copyright : "Unknown"} | {nasaData.date}</h4>
         </div>
     )
 }

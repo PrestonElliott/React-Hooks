@@ -12,7 +12,8 @@ import './App.css';
 
 // import ToDoHook from './Components/ToDos/toDoHooks'
 
-import DailyPic from './Components/DataFetch/data'
+import FunctionDailyPic from './Components/DataFetch/functionFetchData'
+import ClassDailyPic from './Components/DataFetch/classFetchData'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,7 +22,8 @@ function App() {
 	return (
 		<Fragment>
 			<div> 
-				<DailyPic />
+				<FunctionDailyPic />
+				<ClassDailyPic />
 				{/* <ToDoHook/> */}
 				{/* <HookReducerCounter/> */}
 				{/* <ClassCounter/>
