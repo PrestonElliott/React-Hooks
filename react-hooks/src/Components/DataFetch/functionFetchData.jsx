@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Image, Button, Modal } from "react-bootstrap"
+import { Image, Button, Modal, Jumbotron } from "react-bootstrap"
 
 export default function FunctionDailyPic() {
+
     const [nasaData, setData] = useState({ })
     const [showModal, setModal] = useState(false)
 
@@ -11,19 +12,24 @@ export default function FunctionDailyPic() {
         setData(data)
     }
 
-    const handleShow = () => setModal(true)
-
     useEffect(() => {
         fetchData()
     }, [])
 
-    return (  
-        <div id="daily-pic-div">
-            <h3 id="daily-pic-title">{nasaData.title}</h3>
-            <Button variant="info" onClick={handleShow}>
-                NASA - Daily Pic Details
-            </Button>
+    const handleShow = () => setModal(true)
 
+    return (  
+        <>
+        <div id="jumbo-div">
+            <Jumbotron>
+                <h3 id="landing-page-title">{nasaData.title}</h3>
+                <Button variant="info" onClick={handleShow}>
+                    NASA - Daily Pic Details
+                </Button>
+            </Jumbotron>
+        </div>
+
+        <div id="modal-div">
             <Modal size="lg" show={showModal} onHide={() => setModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title id="daily-pic-title"> {nasaData.title} </Modal.Title>
@@ -40,5 +46,6 @@ export default function FunctionDailyPic() {
                 <Button variant="danger" onClick={() => setModal(false)}>Close</Button>
             </Modal>
         </div>
+        </>
     )
 }

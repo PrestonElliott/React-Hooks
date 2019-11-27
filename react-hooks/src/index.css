@@ -41,6 +41,10 @@
   padding: 2%;
 }
 
+#landing-page-title {
+  padding: 2%;
+}
+
 #daily-pic-title {
   text-align: auto;
   padding: 2%;
@@ -51,7 +55,13 @@
   padding: 2%;
 }
 
-#daily-pic-div {
+#jumbo-div {
+  text-align: center;
+  padding: 1%;
+  margin: 2%;
+}
+
+#modal-div {
   text-align: center;
   padding: 2%;
 }

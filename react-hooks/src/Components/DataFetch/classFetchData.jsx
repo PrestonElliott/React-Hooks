@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Button, Modal } from 'react-bootstrap'
+import { Image, Button, Modal, Jumbotron } from 'react-bootstrap'
 
 export default class ClassDailyPic extends React.Component {
 
@@ -20,12 +20,17 @@ export default class ClassDailyPic extends React.Component {
     
     render() {
         return (
-            <div id="daily-pic-div">
-                <h3 id="daily-pic-title">{this.state.nasaData.title}</h3>
-                <Button variant="info" onClick={this.handleShow}>
-                    NASA - Daily Pic Details
-                </Button>
+            <>
+            <div id="jumbo-div">
+                <Jumbotron>
+                    <h3 id="landing-page-title">{this.state.nasaData.title}</h3>
+                    <Button variant="info" onClick={this.handleShow}>
+                        NASA - Daily Pic Details
+                    </Button>
+                </Jumbotron>
+            </div>
 
+            <div id="modal-div">
                 <Modal size="lg" show={this.state.showModal}  onHide={this.handleHide}>
                     <Modal.Header closeButton>
                         <Modal.Title id="daily-pic-title"> {this.state.nasaData.title}</Modal.Title>
@@ -43,6 +48,7 @@ export default class ClassDailyPic extends React.Component {
                     <Button variant="danger" onClick={this.handleHide}>Close</Button>
                 </Modal>
             </div>
+            </>
         ) 
     }  
 }
