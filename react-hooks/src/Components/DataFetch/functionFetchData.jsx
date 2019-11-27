@@ -4,10 +4,7 @@ import { Image, Button, Modal } from "react-bootstrap"
 export default function FunctionDailyPic() {
 
     const [nasaData, setData] = useState({ })
-    // const [show, setShow] = useState(false)
     const [lgShow, setLgShow] = useState(false)
-
-    // const handleClose = () => setShow(false)
     const handleShow = () => setLgShow(true)
 
     async function fetchData() {
@@ -22,6 +19,7 @@ export default function FunctionDailyPic() {
 
     return (  
         <div id="daily-pic-div">
+            <h3>{nasaData.title}</h3>
             <Button variant="info" onClick={handleShow}>
                 NASA - Daily Pic Details
             </Button>
@@ -33,12 +31,11 @@ export default function FunctionDailyPic() {
 
                 <Modal.Body id="daily-pic-info">
                     <Image src={nasaData.hdurl} fluid/>
-                    {nasaData.copyright ? nasaData.copyright : "Unknown"} | {nasaData.date}
+                    <h5 id="daily-pic-sub-title">
+                        {nasaData.copyright ? nasaData.copyright : "Unknown"} | {nasaData.date}
+                    </h5>
+                    <p><strong>Summary:</strong> {nasaData.explanation}</p>
                 </Modal.Body>
-
-                <Modal.Footer>
-                    {nasaData.explanation}
-                </Modal.Footer>
 
                 <Button variant="danger" onClick={() => setLgShow(false)}>Close</Button>
             </Modal>
