@@ -5,13 +5,13 @@ export default function FunctionDailyPic() {
     const [nasaData, setData] = useState({ })
     const [showModal, setModal] = useState(false)
 
-    const handleShow = () => setModal(true)
-
     async function fetchData() {
         const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
         const data = await res.json()
         setData(data)
     }
+
+    const handleShow = () => setModal(true)
 
     useEffect(() => {
         fetchData()
@@ -19,7 +19,7 @@ export default function FunctionDailyPic() {
 
     return (  
         <div id="daily-pic-div">
-            <h3>{nasaData.title}</h3>
+            <h3 id="daily-pic-title">{nasaData.title}</h3>
             <Button variant="info" onClick={handleShow}>
                 NASA - Daily Pic Details
             </Button>

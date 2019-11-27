@@ -7,21 +7,21 @@ export default class ClassDailyPic extends React.Component {
         nasaData: { },
         showModal: false
     }
-    
-    handleShow = () => this.setState({showModal: true})
 
-    handleHide = () => this.setState({showModal: false})
-
-	async componentDidMount() { 
+    async componentDidMount() { 
         const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
         const data = await res.json()
         this.setState({ nasaData: data })
     }
     
+    handleShow = () => this.setState({showModal: true})
+
+    handleHide = () => this.setState({showModal: false})
+    
     render() {
         return (
             <div id="daily-pic-div">
-                <h3>{this.state.nasaData.title}</h3>
+                <h3 id="daily-pic-title">{this.state.nasaData.title}</h3>
                 <Button variant="info" onClick={this.handleShow}>
                     NASA - Daily Pic Details
                 </Button>
