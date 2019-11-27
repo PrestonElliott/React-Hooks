@@ -12,9 +12,7 @@ export default function FunctionDailyPic() {
         setData(data)
     }
 
-    useEffect(() => {
-        fetchData()
-    }, [])
+    useEffect(() => {fetchData()}, [])
 
     const handleShow = () => setModal(true)
 
