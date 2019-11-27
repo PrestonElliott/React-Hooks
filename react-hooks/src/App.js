@@ -12,8 +12,8 @@ import './App.css';
 
 // import ToDoHook from './Components/ToDos/toDoHooks'
 
-import FunctionDailyPic from './Components/DataFetch/functionFetchData'
-// import ClassDailyPic from './Components/DataFetch/classFetchData'
+// import FunctionDailyPic from './Components/DataFetch/functionFetchData'
+import ClassDailyPic from './Components/DataFetch/classFetchData'
 
 // import DetailsModal from './Components/DataFetch/modal'
 
@@ -25,8 +25,8 @@ function App() {
 		<Fragment>
 			<div> 
 				{/* <DetailsModal /> */}
-				<FunctionDailyPic />
-				{/* <ClassDailyPic /> */}
+				{/* <FunctionDailyPic /> */}
+				<ClassDailyPic />
 				{/* <ToDoHook/> */}
 				{/* <HookReducerCounter/> */}
 				{/* <ClassCounter/>

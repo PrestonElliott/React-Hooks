@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Image, Button, Modal } from "react-bootstrap"
 
 export default function FunctionDailyPic() {
-
     const [nasaData, setData] = useState({ })
     const [lgShow, setLgShow] = useState(false)
     const handleShow = () => setLgShow(true)
