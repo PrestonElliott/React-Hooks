@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { Button, Modal } from 'react-bootstrap'
 
 export default function DetailsModal() {
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(false)
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true)
 
     return (
         <>
@@ -21,9 +21,6 @@ export default function DetailsModal() {
                 <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                     Close
-                </Button>
-                <Button variant="primary" onClick={handleClose}>
-                    Save Changes
                 </Button>
                 </Modal.Footer>
             </Modal>

@@ -15,7 +15,7 @@ import './App.css';
 import FunctionDailyPic from './Components/DataFetch/functionFetchData'
 // import ClassDailyPic from './Components/DataFetch/classFetchData'
 
-import DetailsModal from './Components/DataFetch/modal'
+// import DetailsModal from './Components/DataFetch/modal'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -24,7 +24,7 @@ function App() {
 	return (
 		<Fragment>
 			<div> 
-				<DetailsModal />
+				{/* <DetailsModal /> */}
 				<FunctionDailyPic />
 				{/* <ClassDailyPic /> */}
 				{/* <ToDoHook/> */}

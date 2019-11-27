@@ -46,6 +46,11 @@
   padding: 2%;
 }
 
+#daily-pic-div {
+  text-align: center;
+  padding: 2%;
+}
+
 /* COUNTER STYLING */
 .counter {
   margin: auto;

@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Image } from "react-bootstrap"
+import { Image, Button, Modal } from "react-bootstrap"
 
 export default function FunctionDailyPic() {
 
     const [nasaData, setData] = useState({ })
+    // const [show, setShow] = useState(false)
+    const [lgShow, setLgShow] = useState(false)
+
+    // const handleClose = () => setShow(false)
+    const handleShow = () => setLgShow(true)
 
     async function fetchData() {
         const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
@@ -16,11 +21,27 @@ export default function FunctionDailyPic() {
     }, [])
 
     return (  
-        <div>
-            <h2 id="daily-pic-title">{nasaData.title}</h2>
-            <Image id="jumbo-photo" src={nasaData.hdurl} />
-            <h4 id="daily-pic-info">{nasaData.copyright ? nasaData.copyright : "Unknown"} | {nasaData.date}</h4>
+        <div id="daily-pic-div">
+            <Button variant="info" onClick={handleShow}>
+                NASA - Daily Pic Details
+            </Button>
+
+            <Modal size="lg" show={lgShow} onHide={() => setLgShow(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title id="daily-pic-title"> {nasaData.title} </Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body id="daily-pic-info">
+                    <Image src={nasaData.hdurl} fluid/>
+                    {nasaData.copyright ? nasaData.copyright : "Unknown"} | {nasaData.date}
+                </Modal.Body>
+
+                <Modal.Footer>
+                    {nasaData.explanation}
+                </Modal.Footer>
+
+                <Button variant="danger" onClick={() => setLgShow(false)}>Close</Button>
+            </Modal>
         </div>
     )
 }
-
