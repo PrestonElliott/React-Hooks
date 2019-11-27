@@ -3,8 +3,9 @@ import { Image, Button, Modal } from "react-bootstrap"
 
 export default function FunctionDailyPic() {
     const [nasaData, setData] = useState({ })
-    const [lgShow, setLgShow] = useState(false)
-    const handleShow = () => setLgShow(true)
+    const [showModal, setModal] = useState(false)
+
+    const handleShow = () => setModal(true)
 
     async function fetchData() {
         const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
@@ -23,7 +24,7 @@ export default function FunctionDailyPic() {
                 NASA - Daily Pic Details
             </Button>
 
-            <Modal size="lg" show={lgShow} onHide={() => setLgShow(false)}>
+            <Modal size="lg" show={showModal} onHide={() => setModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title id="daily-pic-title"> {nasaData.title} </Modal.Title>
                 </Modal.Header>
@@ -36,7 +37,7 @@ export default function FunctionDailyPic() {
                     <p><strong>Summary:</strong> {nasaData.explanation}</p>
                 </Modal.Body>
 
-                <Button variant="danger" onClick={() => setLgShow(false)}>Close</Button>
+                <Button variant="danger" onClick={() => setModal(false)}>Close</Button>
             </Modal>
         </div>
     )

@@ -26,15 +26,16 @@ export default class ClassDailyPic extends React.Component {
                     NASA - Daily Pic Details
                 </Button>
 
-                <Modal show={this.state.showModal} size="lg" onHide={this.handleHide}>
+                <Modal size="lg" show={this.state.showModal}  onHide={this.handleHide}>
                     <Modal.Header closeButton>
-                        <Modal.Title id="daily-pic-title"> {this.state.nasaData.title} </Modal.Title>
+                        <Modal.Title id="daily-pic-title"> {this.state.nasaData.title}</Modal.Title>
                     </Modal.Header>
 
                     <Modal.Body id="daily-pic-info">
                         <Image src={this.state.nasaData.hdurl} fluid/>
                         <h5 id="daily-pic-sub-title">
-                            {this.state.nasaData.copyright ? this.state.nasaData.copyright : "Unknown"} | {this.state.nasaData.date}
+                            {this.state.nasaData.copyright ? this.state.nasaData.copyright : "Unknown "}
+                             | {this.state.nasaData.date}
                         </h5>
                         <p><strong>Summary:</strong> {this.state.nasaData.explanation}</p>
                     </Modal.Body>
