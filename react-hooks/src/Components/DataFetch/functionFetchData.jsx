@@ -14,14 +14,12 @@ export default function FunctionDailyPic() {
 
     useEffect(() => { fetchData() }, [])
 
-    const handleShow = () => setModal(true)
-
     return (  
         <>
         <div id="jumbo-div">
             <Jumbotron>
                 <h3 id="page-title">{nasaData.title}</h3>
-                <Button variant="info" onClick={handleShow}>
+                <Button variant="info" onClick={() => setModal(true)}>
                     NASA - Daily Pic Details
                 </Button>
             </Jumbotron>
