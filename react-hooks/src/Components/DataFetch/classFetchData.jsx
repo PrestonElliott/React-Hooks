@@ -23,7 +23,7 @@ export default class ClassDailyPic extends React.Component {
             <>
             <div id="jumbo-div">
                 <Jumbotron>
-                    <h3 id="landing-page-title">{this.state.nasaData.title}</h3>
+                    <h3 id="page-title">{this.state.nasaData.title}</h3>
                     <Button variant="info" onClick={this.handleShow}>
                         NASA - Daily Pic Details
                     </Button>
@@ -33,16 +33,16 @@ export default class ClassDailyPic extends React.Component {
             <div id="modal-div">
                 <Modal size="lg" show={this.state.showModal}  onHide={this.handleHide}>
                     <Modal.Header closeButton>
-                        <Modal.Title id="daily-pic-title"> {this.state.nasaData.title}</Modal.Title>
+                        <Modal.Title id="pic-title"> {this.state.nasaData.title}</Modal.Title>
                     </Modal.Header>
 
-                    <Modal.Body id="daily-pic-info">
+                    <Modal.Body id="pic-info">
                         <Image src={this.state.nasaData.hdurl} fluid/>
-                        <h5 id="daily-pic-sub-title">
+                        <h5 id="pic-sub-title">
                             {this.state.nasaData.copyright ? this.state.nasaData.copyright : "Unknown "}
                              | {this.state.nasaData.date}
                         </h5>
-                        <p><strong>Summary:</strong> {this.state.nasaData.explanation}</p>
+                        <p id="pic-summary"><strong>Summary:</strong> {this.state.nasaData.explanation}</p>
                     </Modal.Body>
 
                     <Button variant="danger" onClick={this.handleHide}>Close</Button>

@@ -36,7 +36,7 @@
   padding: 1%;
 }
 
-#daily-pic-sub-title {
+#pic-sub-title {
   text-align: auto;
   padding: 2%;
 }
@@ -45,12 +45,12 @@
   padding: 2%;
 }
 
-#daily-pic-title {
+#pic-title {
   text-align: auto;
   padding: 2%;
 }
 
-#daily-pic-info {
+#pic-info {
   text-align: center;
   padding: 2%;
 }
@@ -65,6 +65,11 @@
   text-align: center;
   padding: 2%;
 }
+
+#pic-summary {
+  height: 75px;
+  overflow-y: scroll;
+}  
 
 /* COUNTER STYLING */
 .counter {
