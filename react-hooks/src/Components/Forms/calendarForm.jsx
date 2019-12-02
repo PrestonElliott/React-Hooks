@@ -47,10 +47,7 @@ export default function CalendarForm() {
     return (
         <>
         <Jumbotron id="calendar-form">
-            <Form 
-                className="sign-up-form"
-                onSubmit={handleSubmit}
-            >
+            <Form className="sign-up-form" onSubmit={handleSubmit}>
 
                 <Form.Label className="form-header">
                     Sign Up Form 
@@ -80,11 +77,7 @@ export default function CalendarForm() {
                     {...email}
                 />
 
-                <Button
-                    className="submit-button" 
-                    variant="primary" 
-                    type="submit"
-                >
+                <Button variant="primary" type="submit">
                     Submit
                 </Button>
             </Form>
@@ -92,3 +85,5 @@ export default function CalendarForm() {
         </>      
     )
 }
+
+// ON SUBMIT - DISPLAY A MODAL WITH Thank you {name}! Your sign up was successful!
