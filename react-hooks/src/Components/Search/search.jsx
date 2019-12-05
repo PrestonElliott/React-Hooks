@@ -18,6 +18,7 @@ export default function Search() {
         return jokesData.results
     }
 
+    // PREVENTS RERENDER FLICKERING AS USER TYPES IN SEARCH
     const sleep = (ms) => {
         return new Promise(resolve => setTimeout(resolve, ms))
     }
