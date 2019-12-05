@@ -9,6 +9,9 @@ export default function Search() {
     const [jokes, setJokes] = useState([])
     const focusSearch = useRef(null)
 
+    // useEffect - FOCUS ON SEARCH INPUT
+    useEffect(() => {focusSearch.current.focus()}, [])
+
     // FETCH API DATA
     const getJokes = async (query) => {
         const results = await fetch(`https://icanhazdadjoke.com/search?term=${query}`, {
@@ -17,14 +20,6 @@ export default function Search() {
         const jokesData = await results.json()
         return jokesData.results
     }
-
-    // PREVENTS RERENDER FLICKERING AS USER TYPES IN SEARCH
-    const sleep = (ms) => {
-        return new Promise(resolve => setTimeout(resolve, ms))
-    }
-
-    // useEffect - FOCUS ON SEARCH INPUT
-    useEffect(() => {focusSearch.current.focus()}, [])
 
     // useEffect - ONLY RERENDERS WHEN query IS CHANGED
     useEffect(() => {
@@ -48,6 +43,10 @@ export default function Search() {
         }
     }, [query])
 
+    // PREVENTS RERENDER FLICKERING AS USER TYPES IN SEARCH
+    const sleep = (ms) => {
+        return new Promise(resolve => setTimeout(resolve, ms))
+    }
 
     // RENDER JOKES 
     let jokeComponents = jokes.map((joke, index) => {
