@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Form, Button, Jumbotron } from 'react-bootstrap'
 
 export default function CalendarForm() {
@@ -41,8 +41,6 @@ export default function CalendarForm() {
             })
         })
     }
-
-    useEffect(() => { document.title = firstName.value + ' ' + lastName.value })
 
     return (
         <>

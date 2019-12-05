@@ -5,7 +5,7 @@ import './StyleSheets/App.css';
 // import HookForm from './Components/Forms/hookForm';
 // import RefactoredHookForm from './Components/Forms/refactoredHookForm'
 // import AbstractHookForm from './Components/Forms/abstractHookForm'
-import CalendarForm from './Components/Forms/calendarForm'
+// import CalendarForm from './Components/Forms/calendarForm'
 
 // import ClassCounter from './Components/Counters/classCounter'
 // import HookCounter from './Components/Counters/hookCounter'
@@ -18,6 +18,8 @@ import CalendarForm from './Components/Forms/calendarForm'
 
 // import DetailsModal from './Components/DataFetch/modal'
 
+import Search from './Components/Search/search'
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -25,7 +27,8 @@ function App() {
 	return (
 		<Fragment>
 			<div> 
-				<CalendarForm/>
+				<Search/>
+				{/* <CalendarForm/> */}
 				{/* <DetailsModal /> */}
 				{/* <FunctionDailyPic /> */}
 				{/* <ClassDailyPic /> */}
