@@ -1,3 +1,27 @@
+/* SEARCH */
+#search {
+  margin: auto;
+  text-align: center;
+  width: 50%;
+  padding: 1%;
+  border-radius: 5%;
+}
+
+#search-input {
+  margin: .5%;
+  padding: 1.36%;
+  border-radius: 5%;
+}
+
+#jokes-list {
+  margin: auto;
+  text-align: auto;
+  padding: 2%;
+  list-style-position: outside;
+}
+
+
+
 /* TO DO STYLING */
 #to-do-form {
   margin: auto;

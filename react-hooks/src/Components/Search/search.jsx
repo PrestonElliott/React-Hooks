@@ -23,7 +23,7 @@ export default function Search() {
         return new Promise(resolve => setTimeout(resolve, ms))
     }
 
-    // useEffect - FOCUS SEARCH INPUT
+    // useEffect - FOCUS ON SEARCH INPUT
     useEffect(() => {focusSearch.current.focus()}, [])
 
     // useEffect - ONLY RERENDERS WHEN query IS CHANGED
@@ -50,15 +50,17 @@ export default function Search() {
 
 
     // RENDER JOKES 
-    let jokeComponents = jokes.map((joke) => {
-        return <li key={joke.id}>{joke.joke}</li> 
+    let jokeComponents = jokes.map((joke, index) => {
+        return <li key={index}>{joke.joke}</li> 
     })
 
     // RENDER COMPONENT
     return (
         <>
-        <div>
+        <div id="search">
+            <h3>Find a Joke!</h3>
             <input
+                id="search-input"
                 placeholder="Search for a Joke"
                 ref={focusSearch}
                 onChange={(e) => setQuery(e.target.value)}
@@ -66,7 +68,7 @@ export default function Search() {
                 type="text"
             />
         </div>
-        <div>
+        <div id="jokes-list">
             <ul>
                 {jokeComponents}
             </ul>
