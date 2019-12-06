@@ -21,16 +21,21 @@ export default function Search() {
         return jokesData.results
     }
 
+    // PREVENTS RERENDER FLICKERING AS USER TYPES IN SEARCH
+    const sleep = (ms) => {
+        return new Promise(resolve => setTimeout(resolve, ms))
+    }
+
     // useEffect - ONLY RERENDERS WHEN query IS CHANGED
     useEffect(() => {
-        let isCurrentQuery = true
+        let currentQuery = true
         const controller = new AbortController()
 
         const loadJokes = async () => {
             if (!query) return setJokes([])
 
             await sleep(350) 
-            if (isCurrentQuery) {
+            if (currentQuery) {
                 const jokes = await getJokes(query, controller)
                 setJokes(jokes)
             }
@@ -38,15 +43,10 @@ export default function Search() {
         loadJokes()
 
         return () => {
-            isCurrentQuery = false
+            currentQuery = false
             controller.abort()
         }
     }, [query])
-
-    // PREVENTS RERENDER FLICKERING AS USER TYPES IN SEARCH
-    const sleep = (ms) => {
-        return new Promise(resolve => setTimeout(resolve, ms))
-    }
 
     // RENDER JOKES 
     let jokeComponents = jokes.map((joke, index) => {
@@ -64,7 +64,6 @@ export default function Search() {
                 ref={focusSearch}
                 onChange={(e) => setQuery(e.target.value)}
                 value={query} 
-                type="text"
             />
         </div>
         <div id="jokes-list">
