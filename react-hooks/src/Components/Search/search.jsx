@@ -52,7 +52,7 @@ export default function Search() {
     // RENDER JOKES 
     let jokeComponents = jokes.map((joke, index) => {
         return (
-        <ListGroup.Item key={index} variant="dark">
+        <ListGroup.Item key={index} action variant="primary">
             {joke.joke}
         </ListGroup.Item>
         )
@@ -62,6 +62,8 @@ export default function Search() {
     return (
         <>
         <Form id="search-form">
+            <h4> Dad Jokes </h4>
+
             <Form.Control 
                 type="email" 
                 placeholder="Search for a Joke..." 
