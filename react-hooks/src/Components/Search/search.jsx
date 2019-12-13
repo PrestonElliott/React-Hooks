@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { Form } from 'react-bootstrap'
 
 export default function Search() {
 
@@ -56,16 +57,16 @@ export default function Search() {
     // RENDER COMPONENT
     return (
         <>
-        <div id="search">
-            <h3>Find a Joke!</h3>
-            <input
-                id="search-input"
-                placeholder="Search for a Joke"
+        <Form id="search-form">
+            <Form.Control 
+                type="email" 
+                placeholder="Search for a Joke..." 
                 ref={focusSearch}
                 onChange={(e) => setQuery(e.target.value)}
                 value={query} 
             />
-        </div>
+        </Form>
+
         <div id="jokes-list">
             <ul>
                 {jokeComponents}
