@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Form } from 'react-bootstrap'
+import { Form, ListGroup } from 'react-bootstrap'
 
 export default function Search() {
 
@@ -51,7 +51,11 @@ export default function Search() {
 
     // RENDER JOKES 
     let jokeComponents = jokes.map((joke, index) => {
-        return <li key={index}>{joke.joke}</li> 
+        return (
+        <ListGroup.Item key={index} variant="dark">
+            {joke.joke}
+        </ListGroup.Item>
+        )
     })
 
     // RENDER COMPONENT
@@ -67,11 +71,9 @@ export default function Search() {
             />
         </Form>
 
-        <div id="jokes-list">
-            <ul>
-                {jokeComponents}
-            </ul>
-        </div>
+        <ListGroup>
+            {jokeComponents}
+        </ListGroup>
         </>
     )
 }
