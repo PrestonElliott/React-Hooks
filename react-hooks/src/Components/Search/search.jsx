@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Form, ListGroup } from 'react-bootstrap'
+import { Form, ListGroup, Jumbotron } from 'react-bootstrap'
 
 export default function Search() {
 
     // SET INITIAL STATE FOR query AND jokes
     // CREATE REF FOR SEARCH INPUT
-    // THIS ORDER MATTERS
     const [query, setQuery] = useState('')
     const [jokes, setJokes] = useState([])
     const focusSearch = useRef(null)
@@ -52,30 +51,31 @@ export default function Search() {
     // RENDER JOKES 
     let jokeComponents = jokes.map((joke, index) => {
         return (
-        <ListGroup.Item key={index} action variant="primary">
-            {joke.joke}
-        </ListGroup.Item>
+            <ListGroup.Item key={index} action variant="secondary">
+                {joke.joke}
+            </ListGroup.Item>
         )
     })
 
     // RENDER COMPONENT
     return (
         <>
-        <Form id="search-form">
-            <h4> Dad Jokes </h4>
+        <Jumbotron fluid>
+            <Form id="search-form">
+                <h4>Dad Jokes</h4>
+                <Form.Control 
+                    type="email" 
+                    placeholder="Search for a Joke..." 
+                    ref={focusSearch}
+                    onChange={(e) => setQuery(e.target.value)}
+                    value={query} 
+                />
+            </Form>     
 
-            <Form.Control 
-                type="email" 
-                placeholder="Search for a Joke..." 
-                ref={focusSearch}
-                onChange={(e) => setQuery(e.target.value)}
-                value={query} 
-            />
-        </Form>
-
-        <ListGroup>
-            {jokeComponents}
-        </ListGroup>
+            <ListGroup>
+                {jokeComponents}
+            </ListGroup>
+        </Jumbotron>
         </>
     )
 }
